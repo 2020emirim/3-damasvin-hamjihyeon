@@ -13,17 +13,19 @@ class DrinkListView(ListView):
 class CoffeeCreateView(CreateView):
     model = Coffee
     fields = '__all__'      #['category','name','price','image']
-    template_name = 'drink_create.html'
+    template_name = 'menu/drink_create.html'
     success_url = reverse_lazy('menu:list')  # DB에 저장된 후 늦게 호출해라.
+    initial = {'category' : 'Coffee'}
 
 class BubbleteaCreateView(CreateView):
     model = Bubbletea
     fields = '__all__'      #['category','name','price','image']
-    template_name = 'drink_create.html'
+    template_name = 'menu/drink_create.html'
     success_url = reverse_lazy('menu:list')  # DB에 저장된 후 늦게 호출해라.
+    initial = {'category' : 'Bubbletea'}
 
 
-class DrinkBookmarkUpdateView(UpdateView):
+class DrinkUpdateView(UpdateView):
     model = Drink
     fields = '__all__'
     template_name_suffix = '_update'  # drink_update.html
